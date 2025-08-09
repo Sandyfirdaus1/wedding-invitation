@@ -389,7 +389,7 @@ export default function Home() {
               {/* Foto pasangan */}
               <div className="rounded-2xl overflow-hidden border-4 border-pink-200 shadow-lg bg-white w-40 h-56 flex items-center justify-center mx-auto mb-4">
                 <Image
-                  src="/Depan.JPG"
+                  src="/Depan.jpg"
                   alt="Pasangan"
                   width={180}
                   height={240}
@@ -706,7 +706,7 @@ export default function Home() {
                 className="flex flex-col items-center"
               >
                 <Image
-                  src="/Cewek1.JPG"
+                  src="/Cewek1.jpg"
                   alt="Mempelai 2"
                   width={120}
                   height={160}
