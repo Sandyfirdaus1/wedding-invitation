@@ -29,7 +29,7 @@ akan menampilkan undangan dengan nama John Doe di halaman depan.
 ## 🚀 Cara Menjalankan Project
 ```bash
 # Clone repository
-git clone https://github.com/username/wedding-invitation.git
+git clone https://github.com/Sandyfirdaus1/wedding-invitation.git
 
 # Masuk ke folder project
 cd food-indo
