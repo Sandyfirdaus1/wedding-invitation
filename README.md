@@ -49,10 +49,10 @@ npm run dev
 3. Form Ucapan & Konfirmasi Kehadiran
 
 **Halaman Depan**
-![Depan](./wedding-invitation/public/Pembukaan.PNG)
+![Depan](./public/Pembukaan.PNG)
 
 **Halaman Tampilan Awal**
-![Tampilan](./wedding-invitation/public/Tampilan.PNG)
+![Tampilan](./public/Tampilan.PNG)
 
 **Halaman Bawah**
-![Bawah](./wedding-invitation/public/Bawah.PNG)
+![Bawah](./public/Bawah.PNG)
