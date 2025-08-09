@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
 function Countdown({ targetDate }: { targetDate: string }) {
   const [timeLeft, setTimeLeft] = useState<{
@@ -229,7 +230,7 @@ const FloatingFlowers = () => {
   );
 };
 
-export default function Home() {
+function Home() {
   const [opened, setOpened] = useState(false);
   const [guest, setGuest] = useState("");
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -371,7 +372,7 @@ export default function Home() {
   };
 
   return (
-    <div className="font-sans min-h-screen text-gray-800 relative overflow-hidden">
+    <div suppressHydrationWarning className="font-sans min-h-screen text-gray-800 relative overflow-hidden">
       {/* Animated vector flowers background */}
       <FloatingFlowers />
       {/* Main content stays above flowers */}
@@ -982,3 +983,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default dynamic(() => Promise.resolve(Home), { ssr: false });
