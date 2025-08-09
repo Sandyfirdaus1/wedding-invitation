@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 💌 Wedding Invitation Web
+Sebuah web undangan pernikahan yang dibuat menggunakan React dan Next.js, dengan desain simple, elegan, dan responsif agar nyaman diakses di berbagai perangkat — mulai dari laptop, tablet, hingga smartphone.
 
-## Getting Started
+---
 
-First, run the development server:
+## ✨ Fitur Utama
+🎯 Desain Responsif — Menyesuaikan tampilan di desktop, tablet, dan mobile.
 
+🎨 Simple & Menarik — Mengutamakan kenyamanan membaca dan estetika visual.
+
+💌 Custom Nama Tamu via URL — Menggunakan parameter ?to= di URL untuk menampilkan nama penerima undangan secara personal.
+Contoh:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+https://namadomain.com?to=John%20Doe
 ```
+akan menampilkan undangan dengan nama John Doe di halaman depan.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📝 Form Konfirmasi Kehadiran (RSVP) — Tamu dapat langsung mengisi konfirmasi hadir di website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+📅 Detail Acara Lengkap — Waktu, lokasi, profil mempelai, dan ucapan.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
+Frontend: React.js, Next.js
+Styling: CSS / Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+---
+## 🚀 Cara Menjalankan Project
+```bash
+# Clone repository
+git clone https://github.com/username/wedding-invitation.git
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Masuk ke folder project
+cd food-indo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Install dependencies
+npm install
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Jalankan development server
+npm run dev
+```
