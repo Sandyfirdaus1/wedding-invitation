@@ -4,26 +4,26 @@ Sebuah web undangan pernikahan yang dibuat menggunakan React dan Next.js, dengan
 ---
 
 ## ✨ Fitur Utama
-🎯 Desain Responsif — Menyesuaikan tampilan di desktop, tablet, dan mobile.
+- 🎯 Desain Responsif — Menyesuaikan tampilan di desktop, tablet, dan mobile.
 
-🎨 Simple & Menarik — Mengutamakan kenyamanan membaca dan estetika visual.
+- 🎨 Simple & Menarik — Mengutamakan kenyamanan membaca dan estetika visual.
 
-💌 Custom Nama Tamu via URL — Menggunakan parameter ?to= di URL untuk menampilkan nama penerima undangan secara personal.
+- 💌 Custom Nama Tamu via URL — Menggunakan parameter ?to= di URL untuk menampilkan nama penerima undangan secara personal.
 Contoh:
 ```bash
 https://namadomain.com?to=John%20Doe
 ```
 akan menampilkan undangan dengan nama John Doe di halaman depan.
 
-📝 Form Konfirmasi Kehadiran (RSVP) — Tamu dapat langsung mengisi konfirmasi hadir di website.
+- 📝 Form Konfirmasi Kehadiran (RSVP) — Tamu dapat langsung mengisi konfirmasi hadir di website.
 
-📅 Detail Acara Lengkap — Waktu, lokasi, profil mempelai, dan ucapan.
+- 📅 Detail Acara Lengkap — Waktu, lokasi, profil mempelai, dan ucapan.
 
 ---
 
 ## 🛠️ Tech Stack
-Frontend: React.js, Next.js
-Styling: CSS / Tailwind CSS
+- Frontend: React.js, Next.js
+- Styling: CSS / Tailwind CSS
 
 ---
 ## 🚀 Cara Menjalankan Project
@@ -40,3 +40,19 @@ npm install
 # Jalankan development server
 npm run dev
 ```
+
+## 📸 Preview
+1. Halaman Pembukaan
+
+2. Detail Acara & Profil Mempelai
+
+3. Form Ucapan & Konfirmasi Kehadiran
+
+**Halaman Depan**
+![Depan](./wedding-invitation/public/Pembukaan.PNG)
+
+**Halaman Tampilan Awal**
+![Tampilan](./wedding-invitation/public/Tampilan.PNG)
+
+**Halaman Bawah**
+![Bawah](./wedding-invitation/public/Bawah.PNG)
