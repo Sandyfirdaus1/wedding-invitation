@@ -32,40 +32,42 @@ function Countdown({ targetDate }: { targetDate: string }) {
   }, [targetDate]);
   if (timeLeft === null) return null;
   return (
-    <div className="flex gap-2 justify-center mb-2">
-      <div className="bg-pink-200 rounded-lg px-3 py-2 text-center">
-        <div className="text-2xl font-bold">
+    <div className="flex gap-3 justify-center mb-4 items-center">
+      <FlowerSVG size={30} color="#f8bbd0" />
+      <div className="bg-gradient-to-br from-pink-200 to-rose-200 rounded-xl px-4 py-3 text-center shadow-lg border-2 border-pink-300">
+        <div className="text-3xl font-bold text-pink-700">
           {String(timeLeft.days).padStart(2, "0")}
         </div>
-        <div className="text-xs font-semibold">Hari</div>
+        <div className="text-xs font-semibold text-pink-600">Hari</div>
       </div>
-      <div className="bg-pink-200 rounded-lg px-3 py-2 text-center">
-        <div className="text-2xl font-bold">
+      <div className="bg-gradient-to-br from-pink-200 to-rose-200 rounded-xl px-4 py-3 text-center shadow-lg border-2 border-pink-300">
+        <div className="text-3xl font-bold text-pink-700">
           {String(timeLeft.hours).padStart(2, "0")}
         </div>
-        <div className="text-xs font-semibold">Jam</div>
+        <div className="text-xs font-semibold text-pink-600">Jam</div>
       </div>
-      <div className="bg-pink-200 rounded-lg px-3 py-2 text-center">
-        <div className="text-2xl font-bold">
+      <div className="bg-gradient-to-br from-pink-200 to-rose-200 rounded-xl px-4 py-3 text-center shadow-lg border-2 border-pink-300">
+        <div className="text-3xl font-bold text-pink-700">
           {String(timeLeft.minutes).padStart(2, "0")}
         </div>
-        <div className="text-xs font-semibold">Menit</div>
+        <div className="text-xs font-semibold text-pink-600">Menit</div>
       </div>
-      <div className="bg-pink-200 rounded-lg px-3 py-2 text-center">
-        <div className="text-2xl font-bold">
+      <div className="bg-gradient-to-br from-pink-200 to-rose-200 rounded-xl px-4 py-3 text-center shadow-lg border-2 border-pink-300">
+        <div className="text-3xl font-bold text-pink-700">
           {String(timeLeft.seconds).padStart(2, "0")}
         </div>
-        <div className="text-xs font-semibold">Detik</div>
+        <div className="text-xs font-semibold text-pink-600">Detik</div>
       </div>
+      <FlowerSVG size={30} color="#f8bbd0" />
     </div>
   );
 }
 
-const FlowerSVG = ({ className = "" }) => (
+const FlowerSVG = ({ className = "", size = 80, color = "#f9c2d1" }) => (
   <svg
     className={className}
-    width="80"
-    height="80"
+    width={size}
+    height={size}
     viewBox="0 0 80 80"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +78,7 @@ const FlowerSVG = ({ className = "" }) => (
         cy="20"
         rx="12"
         ry="24"
-        fill="#f9c2d1"
+        fill={color}
         fillOpacity="0.8"
       />
       <ellipse
@@ -84,7 +86,7 @@ const FlowerSVG = ({ className = "" }) => (
         cy="40"
         rx="12"
         ry="24"
-        fill="#f7b7b7"
+        fill={color}
         fillOpacity="0.8"
         transform="rotate(60 60 40)"
       />
@@ -93,7 +95,7 @@ const FlowerSVG = ({ className = "" }) => (
         cy="60"
         rx="12"
         ry="24"
-        fill="#f9c2d1"
+        fill={color}
         fillOpacity="0.8"
       />
       <ellipse
@@ -101,7 +103,7 @@ const FlowerSVG = ({ className = "" }) => (
         cy="40"
         rx="12"
         ry="24"
-        fill="#f7b7b7"
+        fill={color}
         fillOpacity="0.8"
         transform="rotate(60 20 40)"
       />
@@ -110,14 +112,71 @@ const FlowerSVG = ({ className = "" }) => (
   </svg>
 );
 
+const RoseSVG = ({ className = "", size = 60 }) => (
+  <svg
+    className={className}
+    width={size}
+    height={size}
+    viewBox="0 0 60 60"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g>
+      <circle cx="30" cy="30" r="20" fill="#f48fb1" fillOpacity="0.9" />
+      <circle cx="30" cy="30" r="14" fill="#f06292" fillOpacity="0.9" />
+      <circle cx="30" cy="30" r="8" fill="#e91e63" fillOpacity="0.9" />
+      <circle cx="30" cy="30" r="4" fill="#c2185b" fillOpacity="0.9" />
+    </g>
+  </svg>
+);
+
+const LeafSVG = ({ className = "", size = 40 }) => (
+  <svg
+    className={className}
+    width={size}
+    height={size}
+    viewBox="0 0 40 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 5 C20 5 35 15 35 25 C35 35 20 35 20 35 C20 35 5 35 5 25 C5 15 20 5 20 5"
+      fill="#81c784"
+      fillOpacity="0.7"
+    />
+  </svg>
+);
+
+const FlowerCorner = ({ className = "", position = "top-left" }: { className?: string; position?: "top-left" | "top-right" | "bottom-right" | "bottom-left" }) => {
+  const rotations: Record<string, string> = {
+    "top-left": "0",
+    "top-right": "90",
+    "bottom-right": "180",
+    "bottom-left": "270",
+  };
+  return (
+    <div className={className} style={{ transform: `rotate(${rotations[position]})` }}>
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <FlowerSVG size={80} color="#f9c2d1" />
+      </svg>
+    </div>
+  );
+};
+
 // Simple photo frame with subtle decorations
 const PhotoFrame = ({ src = "/Depan.jpg" }: { src?: string }) => (
-  <div className="relative w-44 h-60 md:w-56 md:h-72 rounded-2xl p-1 bg-gradient-to-br from-pink-200 to-pink-50 border-2 border-pink-200 shadow-lg">
-    <div className="absolute -top-3 -left-3 opacity-50">
-      <FlowerSVG className="w-8 h-8" />
+  <div className="relative w-44 h-60 md:w-56 md:h-72 rounded-2xl p-1 bg-gradient-to-br from-pink-200 via-pink-100 to-rose-50 border-4 border-pink-300 shadow-xl">
+    <div className="absolute -top-4 -left-4 opacity-70">
+      <RoseSVG size={40} />
     </div>
-    <div className="absolute -bottom-3 -right-3 opacity-50">
-      <FlowerSVG className="w-8 h-8" />
+    <div className="absolute -bottom-4 -right-4 opacity-70">
+      <RoseSVG size={40} />
+    </div>
+    <div className="absolute -top-2 -right-2 opacity-50">
+      <FlowerSVG size={30} color="#f48fb1" />
+    </div>
+    <div className="absolute -bottom-2 -left-2 opacity-50">
+      <FlowerSVG size={30} color="#f48fb1" />
     </div>
     <div className="relative w-full h-full rounded-xl overflow-hidden bg-white">
       <Image src={src} alt="Foto Pasangan" fill className="object-cover" />
@@ -236,14 +295,13 @@ function Home() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [ucapanList, setUcapanList] = useState<
     Array<{
-      nama: string;
-      jumlahTamu: string;
-      kehadiran: string;
-      ucapan: string;
+      name: string;
+      message: string;
+      confirmation: string;
+      createdAt: string;
     }>
   >([]);
   const [namaUcapan, setNamaUcapan] = useState("");
-  const [jumlahTamu, setJumlahTamu] = useState("");
   const [kehadiran, setKehadiran] = useState("");
   const [ucapan, setUcapan] = useState("");
   const [isPlaying, setIsPlaying] = useState(false);
@@ -279,6 +337,21 @@ function Home() {
       audio.removeEventListener("play", onPlay);
       audio.removeEventListener("pause", onPause);
     };
+  }, []);
+
+  useEffect(() => {
+    const fetchUcapan = async () => {
+      try {
+        const response = await fetch('/api/ucapan');
+        const data = await response.json();
+        if (data.success) {
+          setUcapanList(data.data);
+        }
+      } catch (error) {
+        console.error('Error fetching ucapan:', error);
+      }
+    };
+    fetchUcapan();
   }, []);
 
   const toggleAudio = () => {
@@ -352,23 +425,35 @@ function Home() {
   //   }
   // }, [guest]);
 
-  // Tambahkan handler untuk submit form ucapan
-  const handleUcapanSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleUcapanSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!namaUcapan || !jumlahTamu || !kehadiran || !ucapan) return;
-    setUcapanList((prev) => [
-      ...prev,
-      {
-        nama: namaUcapan,
-        jumlahTamu,
-        kehadiran,
-        ucapan,
-      },
-    ]);
-    setNamaUcapan("");
-    setJumlahTamu("");
-    setKehadiran("");
-    setUcapan("");
+    if (!namaUcapan || !kehadiran || !ucapan) return;
+    try {
+      const response = await fetch('/api/ucapan', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: namaUcapan,
+          message: ucapan,
+          confirmation: kehadiran === 'hadir' ? 'Hadir' : 'Tidak Hadir',
+        }),
+      });
+      const data = await response.json();
+      if (data.success) {
+        setNamaUcapan("");
+        setKehadiran("");
+        setUcapan("");
+        const fetchResponse = await fetch('/api/ucapan');
+        const fetchData = await fetchResponse.json();
+        if (fetchData.success) {
+          setUcapanList(fetchData.data);
+        }
+      }
+    } catch (error) {
+      console.error('Error submitting ucapan:', error);
+    }
   };
 
   return (
@@ -379,31 +464,72 @@ function Home() {
       <div className="relative z-10">
         {/* Cover Section */}
         {!opened && (
-          <section className="fixed inset-0 z-50 flex flex-col items-center justify-center min-h-screen w-full bg-white/90 backdrop-blur-sm relative overflow-hidden">
+          <section className="fixed inset-0 z-50 flex flex-col items-center justify-center min-h-screen w-full bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 backdrop-blur-sm relative overflow-hidden">
             {/* Floating flowers inside cover overlay */}
             <FloatingFlowers />
-            <div className="flex flex-col items-center w-full max-w-md mx-auto px-4 py-10 relative z-10">
+            {/* Decorative flower corners */}
+            <div className="absolute top-4 left-4 opacity-60">
+              <FlowerCorner position="top-left" />
+            </div>
+            <div className="absolute top-4 right-4 opacity-60">
+              <FlowerCorner position="top-right" />
+            </div>
+            <div className="absolute bottom-4 left-4 opacity-60">
+              <FlowerCorner position="bottom-left" />
+            </div>
+            <div className="absolute bottom-4 right-4 opacity-60">
+              <FlowerCorner position="bottom-right" />
+            </div>
+            <div className="flex flex-col items-center w-full max-w-md mx-auto px-4 py-4 md:py-6 relative z-10">
               {/* Ornamen bunga atas */}
-              <div className="mb-2">
-                <FlowerSVG />
+              <div className="mb-1 md:mb-2 flex gap-2 md:gap-3">
+                <div className="w-5 h-5 md:w-8 md:h-8">
+                  <RoseSVG size={50} />
+                </div>
+                <div className="w-6 h-6 md:w-10 md:h-10">
+                  <FlowerSVG size={60} color="#f48fb1" />
+                </div>
+                <div className="w-5 h-5 md:w-8 md:h-8">
+                  <RoseSVG size={50} />
+                </div>
               </div>
               {/* Foto pasangan */}
-              <div className="rounded-2xl overflow-hidden border-4 border-pink-200 shadow-lg bg-white w-40 h-56 flex items-center justify-center mx-auto mb-4">
-                <Image
-                  src="/Depan.jpg"
-                  alt="Pasangan"
-                  width={180}
-                  height={240}
-                  className="object-cover w-full h-full"
-                />
+              <div className="relative">
+                <div className="absolute -top-6 -left-6 opacity-70">
+                  <FlowerSVG size={40} color="#f8bbd0" />
+                </div>
+                <div className="absolute -top-6 -right-6 opacity-70">
+                  <FlowerSVG size={40} color="#f8bbd0" />
+                </div>
+                <div className="rounded-3xl overflow-hidden border-4 border-pink-300 shadow-2xl bg-white w-32 h-44 md:w-36 md:h-48 flex items-center justify-center mx-auto mb-2 md:mb-3">
+                  <Image
+                    src="/Depan.jpg"
+                    alt="Pasangan"
+                    width={180}
+                    height={240}
+                    className="object-cover w-full h-full"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -left-6 opacity-70">
+                  <FlowerSVG size={40} color="#f8bbd0" />
+                </div>
+                <div className="absolute -bottom-6 -right-6 opacity-70">
+                  <FlowerSVG size={40} color="#f8bbd0" />
+                </div>
               </div>
               {/* Judul dan nama pasangan */}
-              <div className="text-center mb-4">
-                <div className="text-base md:text-lg tracking-widest text-gray-700 font-semibold mb-1 uppercase">
-                  The Wedding Of
+              <div className="text-center mb-2 md:mb-3">
+                <div className="text-xs md:text-sm tracking-widest text-gray-700 font-semibold mb-1 uppercase flex items-center justify-center gap-1">
+                  <div className="w-3 h-3 md:w-4 md:h-4">
+                    <FlowerSVG size={20} color="#f48fb1" />
+                  </div>
+                  <span>The Wedding Of</span>
+                  <div className="w-3 h-3 md:w-4 md:h-4">
+                    <FlowerSVG size={20} color="#f48fb1" />
+                  </div>
                 </div>
                 <div
-                  className="text-3xl md:text-4xl font-bold text-pink-700 mb-2 font-[cursive]"
+                  className="text-xl md:text-3xl font-bold text-pink-700 mb-1 md:mb-2 font-[cursive]"
                   style={{
                     fontFamily:
                       'cursive, "Dancing Script", "Great Vibes", serif',
@@ -413,16 +539,18 @@ function Home() {
                 </div>
               </div>
               {/* Sapaan tamu */}
-              <div className="text-gray-700 text-lg font-medium text-center mb-2">
-                Kepada Yth:
-                <div className="text-xl font-bold text-pink-700 mt-1">
-                  {guest} dan Partner
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl px-3 py-2 md:px-4 md:py-2 shadow-lg mb-2 md:mb-3">
+                <div className="text-gray-700 text-xs md:text-sm font-medium text-center">
+                  Kepada Yth:
+                  <div className="text-sm md:text-base font-bold text-pink-700 mt-1">
+                    {guest} dan Partner
+                  </div>
+                  <div className="text-xs text-gray-500 mt-1">Di Tempat</div>
                 </div>
-                <div className="text-base text-gray-500">Di Tempat</div>
               </div>
               <button
                 onClick={handleOpen}
-                className="mt-4 bg-gray-700 hover:bg-pink-600 text-white font-semibold py-2 px-8 rounded shadow transition flex items-center gap-2"
+                className="mt-1 md:mt-2 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-2 px-5 md:py-2 md:px-8 rounded-full shadow-lg transition transform hover:scale-105 flex items-center gap-2 text-xs md:text-sm"
               >
                 <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
                   <rect width="24" height="24" fill="none" />
@@ -437,8 +565,16 @@ function Home() {
                 Buka Undangan
               </button>
               {/* Ornamen bunga bawah */}
-              <div className="mt-6">
-                <FlowerSVG />
+              <div className="mt-2 md:mt-3 flex gap-2 md:gap-3">
+                <div className="w-5 h-5 md:w-8 md:h-8">
+                  <RoseSVG size={50} />
+                </div>
+                <div className="w-6 h-6 md:w-10 md:h-10">
+                  <FlowerSVG size={60} color="#f48fb1" />
+                </div>
+                <div className="w-5 h-5 md:w-8 md:h-8">
+                  <RoseSVG size={50} />
+                </div>
               </div>
             </div>
           </section>
@@ -613,8 +749,21 @@ function Home() {
           {/* 1. Countdown & Simpan Kalender */}
           <section
             id="home"
-            className="flex flex-col items-center justify-center py-8 px-4 bg-white/80 rounded-xl shadow mb-6 mt-4"
+            className="flex flex-col items-center justify-center py-10 px-6 bg-gradient-to-br from-white/90 via-pink-50/90 to-rose-50/90 rounded-2xl shadow-xl mb-8 mt-6 relative border-4 border-pink-200"
           >
+            {/* Flower corners */}
+            <div className="absolute top-2 left-2 opacity-50">
+              <FlowerSVG size={40} color="#f8bbd0" />
+            </div>
+            <div className="absolute top-2 right-2 opacity-50">
+              <FlowerSVG size={40} color="#f8bbd0" />
+            </div>
+            <div className="absolute bottom-2 left-2 opacity-50">
+              <FlowerSVG size={40} color="#f8bbd0" />
+            </div>
+            <div className="absolute bottom-2 right-2 opacity-50">
+              <FlowerSVG size={40} color="#f8bbd0" />
+            </div>
             {/* Photo frame at top */}
             <RevealOnScroll className="mb-6 flex justify-center">
               <PhotoFrame src="/Depan.jpg" />
@@ -661,7 +810,13 @@ function Home() {
             </RevealOnScroll>
           </section>
           {/* 2. Pembukaan */}
-          <section className="max-w-2xl mx-auto text-center py-4 px-4">
+          <section className="max-w-2xl mx-auto text-center py-8 px-6 bg-gradient-to-r from-pink-50/50 to-rose-50/50 rounded-2xl shadow-md relative border-2 border-pink-100">
+            <div className="absolute top-0 left-0 opacity-30">
+              <RoseSVG size={30} />
+            </div>
+            <div className="absolute bottom-0 right-0 opacity-30">
+              <RoseSVG size={30} />
+            </div>
             <RevealOnScroll delayMs={0}>
               <p className="text-lg text-gray-700 mb-2">
                 Assalamu'alaikum warahmatullahi wabarakatuh
@@ -676,7 +831,13 @@ function Home() {
             </RevealOnScroll>
           </section>
           {/* 3. Profil Mempelai */}
-          <section className="max-w-3xl mx-auto py-8 px-4" id="profil">
+          <section className="max-w-3xl mx-auto py-10 px-6 relative" id="profil">
+            <div className="absolute top-4 left-4 opacity-40">
+              <FlowerCorner position="top-left" />
+            </div>
+            <div className="absolute top-4 right-4 opacity-40">
+              <FlowerCorner position="top-right" />
+            </div>
             <RevealOnScroll>
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-pink-500">
                 Profil Mempelai
@@ -721,7 +882,13 @@ function Home() {
             </div>
           </section>
           {/* 4. Cerita Cinta */}
-          <section className="bg-pink-50 py-8 px-4" id="cerita">
+          <section className="bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 py-10 px-6 relative border-t-4 border-b-4 border-pink-200" id="cerita">
+            <div className="absolute top-2 left-1/2 -translate-x-1/2 opacity-50">
+              <FlowerSVG size={50} color="#f8bbd0" />
+            </div>
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 opacity-50">
+              <FlowerSVG size={50} color="#f8bbd0" />
+            </div>
             <RevealOnScroll>
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-pink-500">
                 Cerita Cinta Kami
@@ -740,7 +907,19 @@ function Home() {
             </RevealOnScroll>
           </section>
           {/* 5. Detail Acara */}
-          <section className="bg-pink-100 py-8 px-4" id="acara">
+          <section className="bg-gradient-to-br from-pink-100 via-rose-100 to-pink-200 py-10 px-6 relative" id="acara">
+            <div className="absolute top-4 left-4 opacity-40">
+              <RoseSVG size={40} />
+            </div>
+            <div className="absolute top-4 right-4 opacity-40">
+              <RoseSVG size={40} />
+            </div>
+            <div className="absolute bottom-4 left-4 opacity-40">
+              <RoseSVG size={40} />
+            </div>
+            <div className="absolute bottom-4 right-4 opacity-40">
+              <RoseSVG size={40} />
+            </div>
             <RevealOnScroll>
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-pink-500">
                 Detail Acara
@@ -788,7 +967,19 @@ function Home() {
             </div>
           </section>
           {/* 6. Galeri Foto */}
-          <section className="py-8 px-4" id="galeri">
+          <section className="py-10 px-6 bg-gradient-to-r from-white via-pink-50 to-white relative" id="galeri">
+            <div className="absolute top-2 left-2 opacity-30">
+              <FlowerSVG size={35} color="#f48fb1" />
+            </div>
+            <div className="absolute top-2 right-2 opacity-30">
+              <FlowerSVG size={35} color="#f48fb1" />
+            </div>
+            <div className="absolute bottom-2 left-2 opacity-30">
+              <FlowerSVG size={35} color="#f48fb1" />
+            </div>
+            <div className="absolute bottom-2 right-2 opacity-30">
+              <FlowerSVG size={35} color="#f48fb1" />
+            </div>
             <RevealOnScroll>
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-pink-500">
                 Galeri Foto
@@ -829,7 +1020,19 @@ function Home() {
             </RevealOnScroll>
           </section>
           {/* 7. Amplop Digital */}
-          <section className="bg-pink-50 py-8 px-4" id="amplop">
+          <section className="bg-gradient-to-br from-rose-50 via-pink-50 to-pink-100 py-10 px-6 relative border-4 border-pink-200" id="amplop">
+            <div className="absolute top-3 left-3 opacity-50">
+              <FlowerCorner position="top-left" />
+            </div>
+            <div className="absolute top-3 right-3 opacity-50">
+              <FlowerCorner position="top-right" />
+            </div>
+            <div className="absolute bottom-3 left-3 opacity-50">
+              <FlowerCorner position="bottom-left" />
+            </div>
+            <div className="absolute bottom-3 right-3 opacity-50">
+              <FlowerCorner position="bottom-right" />
+            </div>
             <RevealOnScroll>
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-pink-500">
                 Amplop Digital
@@ -919,13 +1122,6 @@ function Home() {
                 onChange={(e) => setNamaUcapan(e.target.value)}
                 className="border border-pink-200 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-300"
               />
-              <input
-                type="number"
-                placeholder="Jumlah Tamu"
-                value={jumlahTamu}
-                onChange={(e) => setJumlahTamu(e.target.value)}
-                className="border border-pink-200 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-300"
-              />
               <select
                 value={kehadiran}
                 onChange={(e) => setKehadiran(e.target.value)}
@@ -960,11 +1156,11 @@ function Home() {
                 {ucapanList.map((item, idx) => (
                   <li key={idx} className="bg-white rounded-lg shadow p-4">
                     <div className="font-bold text-pink-600">
-                      {item.nama} ({item.kehadiran})
+                      {item.name} ({item.confirmation})
                     </div>
-                    <div className="text-gray-700">{item.ucapan}</div>
+                    <div className="text-gray-700">{item.message}</div>
                     <div className="text-xs text-gray-400">
-                      Jumlah tamu: {item.jumlahTamu}
+                      {new Date(item.createdAt).toLocaleString('id-ID')}
                     </div>
                   </li>
                 ))}
