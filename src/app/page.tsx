@@ -130,22 +130,6 @@ const RoseSVG = ({ className = "", size = 60 }) => (
   </svg>
 );
 
-const LeafSVG = ({ className = "", size = 40 }) => (
-  <svg
-    className={className}
-    width={size}
-    height={size}
-    viewBox="0 0 40 40"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M20 5 C20 5 35 15 35 25 C35 35 20 35 20 35 C20 35 5 35 5 25 C5 15 20 5 20 5"
-      fill="#81c784"
-      fillOpacity="0.7"
-    />
-  </svg>
-);
 
 const FlowerCorner = ({ className = "", position = "top-left" }: { className?: string; position?: "top-left" | "top-right" | "bottom-right" | "bottom-left" }) => {
   const rotations: Record<string, string> = {
